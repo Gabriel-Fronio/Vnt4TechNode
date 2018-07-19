@@ -1,0 +1,146 @@
+<html>
+    <head>
+        <meta charset="utf-8">
+    <!-- Link para icones-->    
+        <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.1.0/css/all.css" integrity="sha384-lKuwvrZot6UHsBSfcMvOkWwlCMgc0TaWr+30HWe3a4ltaBwTZhyTEggF5tJv8tbt" crossorigin="anonymous">
+
+    <!-- Links para CSS-->
+        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.2/css/bootstrap.min.css" integrity="sha384-Smlep5jCw/wG7hdkwQ/Z5nLIefveQRIY9nfy6xoR1uRYBtpZgI6339F5dgvm/e9B" crossorigin="anonymous">
+
+        <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>
+        <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.2/js/bootstrap.min.js" integrity="sha384-o+RDsa0aLu++PJvFqy8fFScvbHFLtbvScb8AjopnFD+iEQ7wo/CG0xlczd+2O/em" crossorigin="anonymous"></script>
+        <script src="script.js"></script>
+
+        <title>VJobs</title>
+    </head>
+    <body>
+        <nav class="navbar navbar-expand bg-dark">
+            <a class="navbar-brand" href="index.html">
+                <img src="recursos/logo-h-vjobs.png" height="64px" width="120px">
+            </a>
+            <div class="collapse navbar-collapse">
+                <ul class="nav navbar-nav mr-auto">
+                    <li class="navbar-nav nav-item">
+                        <a class="nav-link text-white" href="#">Vagas</a>
+                    </li>
+                    <li class="navbar-nav">
+                            <a class="nav-link text-white" href="#">Sobre</a>
+                    </li>
+                </ul>
+            </div>
+        </nav>
+            <button class="btn btn-primary mt-3 ml-3" data-toggle="collapse" data-target="#collapseVaga" aria-expanded="false" aria-controls="collapseVaga">
+                Nova vaga
+            </button>
+
+            <br>
+            
+            <div class="collapse ml-3 mr-3 mt-3" id="collapseVaga">
+                <div class="card">
+                    <div class="card-body">
+                        <form>
+                            <div class="form-group">    
+                                <label>Nome</label>
+                                <input type="text" class="form-control" id="nome">
+                            </div>
+                            <div class="form-group">
+                                <label>Descrição</label>
+                                <textarea class="form-control" id="descricao"></textarea>
+                            </div>
+                            <div class="row">
+                                <div class="col">
+                                    <div class="form-group">
+                                        <label>Habilidades necessárias</label>
+                                        <textarea class="form-control" id="habilidades"></textarea>
+                                    </div>
+                                </div>
+                                <div class="col">
+                                    <div class="form-group">
+                                        <label>Diferenciais</label>
+                                        <textarea class="form-control" id="diferenciais"></textarea>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col">
+                                    <div class="form-group">
+                                        <label>Salário base</label>
+                                        <input type="text" class="form-control" id="salario">
+                                    </div>
+                                </div>
+                                <div class="col">
+                                        <div class="form-group">
+                                            <label>Área</label>
+                                            <select class="form-control" id="area">
+                                                <option>Desenvolvimento</option>
+                                                <option>Testes</option>
+                                                <option>Outra area</option>
+                                            </select>
+                                        </div>
+                                </div>
+                            </div>
+                            <div class="form-check">
+                                <input type="checkbox" class="form-check-input" id="pcd">
+                                <label class="form check-label" for="pcd">Vaga para PCD</label>
+                            </div>
+                            <div class="float-right">
+                                <button type="submit" class="btn btn-success">Criar Vaga</button>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            
+            </div>
+            <div class="row ml-1 mr-1" id="linha">
+                <div class="col-12 col-sm-12 col-md-6 col-lg-4 mt-3 mb-3">
+                    <div class="card">
+                        <img class="card-img-top" src="recursos/developer.png">
+                        <div class="card-body">
+                            <h5 class="card-title">Desenvolvedor Front-end JR</h5>
+                            <p>
+                                <b>Descrição:</b><br>
+                                Profissional que goste de trabalhar em um ambiente dinâmico com desenvolvimento de software e que tenha experiência em desenvolvimento full stack.
+                                <br><b>Salário base:</b>
+                                <br>R$10,00
+                            </p>
+                            <button class="btn btn-warning" href="#"><i class="far fa-edit"></i></button>
+                            <button class="btn btn-danger" href="#"><i class="far fa-trash-alt"></i></button>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-12 col-sm-12 col-md-6 col-lg-4 mt-3 mb-3">
+                        <div class="card">
+                                <img class="card-img-top" src="recursos/designer.png">
+                                <div class="card-body">
+                                    <h5 class="card-title">Designer UI/UX PL</h5>
+                                    <p>
+                                        <b>Descrição:</b><br>
+                                        Profissional que goste de trabalhar em um ambiente dinâmico com desenvolvimento de software e que tenha experiência em desenvolvimento full stack.
+                                        <br><b>Salário base:</b>
+                                        <br>R$100,00
+                                    </p>
+                                    <button class="btn btn-warning" href="#"><i class="far fa-edit"></i></button>
+                                    <button class="btn btn-danger" href="#"><i class="far fa-trash-alt"></i></button>
+                                </div>
+                            </div>
+                </div>
+                <div class="col-12 col-sm-12 col-md-6 col-lg-4 mt-3 mb-3">
+                        <div class="card">
+                                <img class="card-img-top" src="recursos/tester.png">
+                                <div class="card-body">
+                                    <h5 class="card-title">Tester - Estágio</h5>
+                                    <p>
+                                        <b>Descrição:</b><br>
+                                        Profissional que goste de trabalhar em um ambiente dinâmico com desenvolvimento de software e que tenha experiência em desenvolvimento full stack.
+                                        <br><b>Salário base:</b>
+                                        <br>R$2,00
+                                    </p>
+                                    <button class="btn btn-warning" href="#"><i class="far fa-edit"></i></button>
+                                    <button class="btn btn-danger" href="#"><i class="far fa-trash-alt"></i></button>
+                                </div>
+                            </div>
+                </div>
+            </div>
+    </body>
+</html>

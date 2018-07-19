@@ -17,6 +17,8 @@
     "eslint-plugin-standard": "^3.1.0"
   },
   "dependencies": {
-    "express": "4.16.3"
+    "consign": "^0.1.6",
+    "express": "4.16.3",
+    "npm": "^6.2.0"
   }
 }
