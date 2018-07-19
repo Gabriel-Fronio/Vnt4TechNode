@@ -3,7 +3,6 @@
 const express = require('express')
 const server = express()
 const bodyParser = require('body-parser')
-const path = require('path')
 const consign = require('consign')
 
 server.use('/vjobs', express.static(__dirname + '/app/static'))
