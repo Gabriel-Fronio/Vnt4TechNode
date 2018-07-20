@@ -1,6 +1,5 @@
 class Vaga {
-  constructor (id, name, description, skills, area, differentials, isPcd, isActive) {
-    this.id = id
+  constructor (name, description, skills, area, differentials, isPcd, isActive) {
     this.name = name
     this.description = description
     this.skills = skills

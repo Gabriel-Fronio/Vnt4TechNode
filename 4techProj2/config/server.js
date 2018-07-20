@@ -8,14 +8,14 @@ const consign = require('consign')
 server.use('/vjobs', express.static(__dirname + '/../app/static'))
 server.use(bodyParser.urlencoded({extended: false}))
 server.use(bodyParser.json())
-consign().include('./app/routes').into(server)
+consign().include('./config/firebaseConfig.js').then('./app/routes').into(server)
 
 server.get('/', async (req, res) => {
   try {
     return res.redirect('http://localhost:3000/vjobs/index.html')
   } catch (err) {
     console.error(err.message)
-    return res.status(500).send('Como deu um erro aqui')
+    return res.status(500).send('Erro no redirecionamento(?)')
   }
 })
 
