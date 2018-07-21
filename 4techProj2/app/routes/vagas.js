@@ -19,8 +19,8 @@ module.exports = app => {
 
   app.get('/vagas/:id', async (req, res) => {
     try {
-      let achada = await vagasCollection.where('id', '==', req.params.id)
-      if (achada) {
+      let achada = await vagasCollection.doc(req.params.id).get()
+      if (achada.exists) {
         return res.send(extractVaga(achada))
       }
       return res.send('Não foi achada vaga com esse id')
@@ -52,12 +52,16 @@ module.exports = app => {
         res.status(403).send('Corpo da requisição não pode ser vazio')
       }
       let id = req.params.id
-      let i = await vagas.findIndex(vaga => { return vaga.id === id })
-      if (i === -1) {
-        return res.send('Não existe esse ID')
+      let achada = await vagasCollection.doc(id).get()
+      if (achada.exists) {
+        var success = await vagasCollection.doc(id).update(req.body)
+        if (success) {
+          return res.send('Alterado')
+        }
+        throw Error
+      } else {
+        return res.send('Não existe documento com esse ID')
       }
-      Object.keys(req.body).forEach(v => { vagas[i][v] = req.body[v] })
-      return res.send('Alterado')
     } catch (err) {
       console.error(err.message)
       return res.status(500).send(err.message)
@@ -67,12 +71,16 @@ module.exports = app => {
   app.delete('/vagas/:id', async (req, res) => {
     try {
       let id = req.params.id
-      let ind = await vagas.findIndex(vaga => { return vaga.id === id })
-      if (ind === -1) {
-        return res.send('Não existe esse ID')
+      let achada = await vagasCollection.doc(id).get()
+      if (achada.exists) {
+        let success = await vagasCollection.doc(req.params.id).delete()
+        if (success) {
+          return res.send('Deletado com sucesso')
+        }
+        throw Error
+      } else {
+        return res.send('Não existe documento com esse ID')
       }
-      vagas.splice(ind, 1)
-      return res.send('Excluído')
     } catch (err) {
       console.log(err.message)
       return res.status(500).send(err.message)
