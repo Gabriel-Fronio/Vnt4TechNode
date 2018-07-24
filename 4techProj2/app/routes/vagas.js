@@ -30,20 +30,15 @@ module.exports = app => {
   })
 
   app.post('/vagas', async (req, res) => {
-    try {
       if (req.body === undefined || req.body == null) {
         return res.send(403).send('Corpo da requisição não pode ser vazio')
       }
 
-      const fbReturn = await vagasCollection.doc().set(req.body)
-      if (fbReturn) {
-        return res.send('Adicionado com sucesso')
-      } else {
-        throw Error
-      }
-    } catch (err) {
-      return res.status(500).send(err.message)
-    }
+      vagasCollection.add(req.body).then(response => {
+        return res.send(response.id);
+      }).catch(err => {
+        return res.status(500).send(err.message);
+      })
   })
 
   app.put('/vagas/:id', async (req, res) => {
