@@ -1,4 +1,4 @@
-const Vaga = require('../../model/vaga.js')
+const auth = require('../../config/security/tokenValidator');
 
 module.exports = app => {
   const vagasCollection = app.config.firebaseConfig.collection('vagas')
@@ -29,7 +29,7 @@ module.exports = app => {
     }
   })
 
-  app.post('/vagas', async (req, res) => {
+  app.post('/vagas', auth, async (req, res, next) => {
       if (req.body === undefined || req.body == null) {
         return res.send(403).send('Corpo da requisição não pode ser vazio')
       }
@@ -41,7 +41,7 @@ module.exports = app => {
       })
   })
 
-  app.put('/vagas/:id', async (req, res) => {
+  app.put('/vagas/:id', auth, async (req, res, next) => {
     try {
       if (req.body === undefined || req.body == null) {
         res.status(403).send('Corpo da requisição não pode ser vazio')
@@ -63,7 +63,7 @@ module.exports = app => {
     }
   })
 
-  app.delete('/vagas/:id', async (req, res) => {
+  app.delete('/vagas/:id', auth, async (req, res, next) => {
     try {
       let id = req.params.id
       let achada = await vagasCollection.doc(id).get()
@@ -95,7 +95,4 @@ module.exports = app => {
       isActive: v.isActive
     }
   }
-
-  const createVaga = (obj) => new Vaga(obj.id, obj.name, obj.description,
-    obj.skills, obj.area, obj.differentials, obj.isPcd, obj.isActive)
 }
